@@ -9,9 +9,8 @@ def display_menu():
 def write_entry():
     entry = input("Write your entry: ")
     try:
-        # Open the file in append mode and write the entry to it
-        file = open("diary.txt", "a") 
-        file.write(entry + "\n")
+        with open("diary.txt", "a") as file:
+            file.write(entry + "\n")
         print("Entry saved successfully.")
     except PermissionError:
         print("Permission denied: Unable to write to the file.")
@@ -23,14 +22,14 @@ def view_entries():
         if not os.path.exists("diary.txt"):
             print("No entries found.")
             return
-        file = open("diary.txt", "r")
-        entries = file.readlines()
-        if entries:
-            print("Previous Entries:")
-            for entry in entries:
-                print(entry.strip())
-        else:
-            print("No entries found.")
+        with open("diary.txt", "r") as file:
+            entries = file.readlines()
+            if entries:
+                print("Previous Entries:")
+                for entry in entries:
+                    print(entry.strip())
+            else:
+                print("No entries found.")
     except FileNotFoundError:
         print("File not found.")
     except PermissionError:
@@ -51,5 +50,6 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 main()
