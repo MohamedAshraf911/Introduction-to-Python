@@ -6,11 +6,6 @@ while n.isdigit() != True:
     print("Please enter a valid number")
     n = input("Enter the number for fibonacci sequence: ")
 
-while int(n) <= 0:
-    print("Please enter a positive number")
-    n = input("Enter the number for fibonacci sequence: ") 
-
-
 if int(n) == 1:
     print(a)
 else:
