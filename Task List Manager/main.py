@@ -17,6 +17,9 @@ def save_tasks(tasks):
 
 def add_task(tasks):
     task = input("Enter the task: ")
+    while not task:
+        print("Task cannot be empty.")
+        task = input("Enter the task: ")
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     tasks.append(f"{task} (added on {timestamp})")
     save_tasks(tasks)
