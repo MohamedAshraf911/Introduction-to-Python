@@ -1,4 +1,4 @@
-arr = [1,2,3]
+arr = [64, 34, 25, 12, 22, 11, 90]
 n = len(arr)
 swap = False
 for i in range(n):
