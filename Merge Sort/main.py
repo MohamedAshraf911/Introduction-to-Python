@@ -1,5 +1,5 @@
 arr = [64, 34, 25, 12, 22, 11, 90]
-n = len(arr)
+
 def merge_sort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
