@@ -38,6 +38,9 @@ def main():
             subject = input("Enter subject: ")
             try:
                 grade = float(input("Enter grade: "))
+                while grade < 0 or grade > 100:
+                    print("Invalid grade. Grade must be between 0 and 100.")
+                    grade = float(input("Enter grade: "))
                 grades[subject] = grade
                 write_grades(file_path, grades)
             except ValueError:
