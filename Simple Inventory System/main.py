@@ -10,6 +10,9 @@ class Product:
         print(f"Quantity: {self.quantity}")
 
     def update_quantity(self, amount):
+        if self.quantity + amount < 0:
+            print("Insufficient stock")
+            return
         self.quantity += amount
 
     def total_value(self):
@@ -40,6 +43,7 @@ class Inventory:
         self.products = [product for product in self.products if product.name != product_name]
 
     def display_inventory(self):
+        print("\nCurrent Inventory:")
         for product in self.products:
             product.display_info()
             print("-" * 20)
@@ -57,8 +61,10 @@ if __name__ == "__main__":
     inventory.add_product(product1)
     inventory.add_product(product2)
 
+    inventory.display_inventory()
+
     inventory.buy_product("Laptop", 5)
-    inventory.sell_product("Phone", 2)
+    inventory.sell_product("Phone", 20)
 
     inventory.display_inventory()
     print(f"Total Inventory Value: ${inventory.total_inventory_value()}")
