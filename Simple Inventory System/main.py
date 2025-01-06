@@ -18,7 +18,21 @@ class Product:
 class Inventory:
     def __init__(self):
         self.products = []
+    
+    def buy_product(self, product_name, quantity):
+        for product in self.products:
+            if product.name == product_name:
+                product.update_quantity(quantity)
+                return
+        print("Product not found")
 
+    def sell_product(self, product_name, quantity):
+        for product in self.products:
+            if product.name == product_name:
+                product.update_quantity(-quantity)
+                return
+        print("Product not found")
+    
     def add_product(self, product):
         self.products.append(product)
 
@@ -42,6 +56,9 @@ if __name__ == "__main__":
 
     inventory.add_product(product1)
     inventory.add_product(product2)
+
+    inventory.buy_product("Laptop", 5)
+    inventory.sell_product("Phone", 2)
 
     inventory.display_inventory()
     print(f"Total Inventory Value: ${inventory.total_inventory_value()}")
