@@ -1,0 +1,2 @@
+Account created for Ali with balance 2000
+Withdrew 1000. Balance: 1000

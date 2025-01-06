@@ -1,0 +1,2 @@
+Account created for Hamdy with balance 500
+Withdrew 200. Balance: 300

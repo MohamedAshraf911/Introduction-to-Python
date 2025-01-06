@@ -1,0 +1,2 @@
+Account created for Ahmed with balance 1000
+Deposited 500. Balance: 1500
