@@ -14,14 +14,24 @@ class BankAccount:
 
     def deposit(self, amount):
         self.balance += amount
-        with open(self.filename, 'a') as file:
-            file.write(f"Deposited {amount}. Balance: {self.balance}\n")
+        try:
+            with open(self.filename, 'a') as file:
+                file.write(f"Deposited {amount}. Balance: {self.balance}\n")
+        except IOError:
+            print("File not found")
+        except Exception as e:
+            print("An error occurred: ", e)
 
     def withdraw(self, amount):
         if self.balance >= amount:
             self.balance -= amount
-            with open(self.filename, 'a') as file:
-                file.write(f"Withdrew {amount}. Balance: {self.balance}\n")
+            try:
+                with open(self.filename, 'a') as file:
+                    file.write(f"Withdrew {amount}. Balance: {self.balance}\n")
+            except IOError:
+                print("File not found")
+            except Exception as e:
+                print("An error occurred: ", e)
         else:
             print("Insufficient balance")
 
@@ -38,8 +48,13 @@ class BankAccount:
         return self.accountType
     
     def get_History(self):
-        with open(self.filename, 'r') as file:
-            return file.read()
+        try:
+            with open(self.filename, 'r') as file:
+                return file.read()
+        except IOError:
+            print("File not found")
+        except Exception as e:
+            print("An error occurred: ", e)
         
 # Example usage
 if __name__ == "__main__":
